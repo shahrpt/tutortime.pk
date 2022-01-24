@@ -1,0 +1,81 @@
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark navbar-light"
+  (window:scroll)="windowScroll()" id="navbar">
+  <div class="container">
+    <!-- LOGO -->
+    <a class="logo text-uppercase" href="/">
+      <img src="assets/images/logo-light.png" class="logo-light" alt="" height="20">
+      <img src="assets/images/logo-dark.png" alt="" class="logo-dark" height="20" />
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <i class="mdi mdi-menu"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto navbar-center" id="mySidenav">
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'home'}">
+          <a [ngxScrollTo]="'#home'" href="javascript: void(0);" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'services'}">
+          <a [ngxScrollTo]="'#services'" href="javascript: void(0);" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'features'}">
+          <a [ngxScrollTo]="'#features'" href="javascript: void(0);" class="nav-link">Features</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'clients'}">
+          <a [ngxScrollTo]="'#clients'" href="javascript: void(0);" class="nav-link">Clients</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'pricing'}">
+          <a [ngxScrollTo]="'#pricing'" href="javascript: void(0);" class="nav-link">Plans</a>
+        </li>
+      </ul>
+      <button class="btn btn-success btn-rounded navbar-btn">Try for Free</button>
+
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+  <!-- Hero section Start -->
+  <section class="hero-section-2 bg-primary" id="home">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="hero-wrapper text-center mb-4">
+            <p class="font-16 text-white-50 text-uppercase">Discover TutorTime.pk Today</p>
+            <h1 class="hero-title text-white mb-4">Make your Site Amazing & Unique with <span class="text-success">TutorTime.pk</span></h1>
+
+            <p class="text-white-50">To an English person, it will seem like simplified English, as a skeptical
+              Cambridge friend of mine occidental</p>
+
+            <div class="watch-video pt-5">
+              <a (click)="openWindowCustomClass(videocontent)" class="video-play-icon text-light"><i
+                  class="mdi mdi-play play-icon-circle play play-iconbar"></i> WATCH VIDEO</a>
+              <ng-template #videocontent let-modal class="video-modal">
+                <div class="modal-header">
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body p-0">
+                  <youtube-player [videoId]="'JlvxDa7Sges'" height="450" width="780">
+                  </youtube-player>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- Hero section End -->
+  <app-services></app-services>
+  <app-features></app-features>
+  <app-clients></app-clients>
+  <app-plans></app-plans>
+  <app-footer></app-footer>
+</div>

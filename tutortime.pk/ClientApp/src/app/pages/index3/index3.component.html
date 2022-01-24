@@ -1,0 +1,84 @@
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark" (window:scroll)="windowScroll()"
+  id="navbar">
+  <div class="container">
+    <!-- LOGO -->
+    <a class="logo text-uppercase" href="/">
+      <img src="assets/images/logo-dark.png" alt="" class="logo-dark" height="20" />
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <i class="mdi mdi-menu"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto navbar-center" id="mySidenav">
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'home'}">
+          <a [ngxScrollTo]="'#home'" href="javascript: void(0);" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'services'}">
+          <a [ngxScrollTo]="'#services'" href="javascript: void(0);" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'features'}">
+          <a [ngxScrollTo]="'#features'" href="javascript: void(0);" class="nav-link">Features</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'clients'}">
+          <a [ngxScrollTo]="'#clients'" href="javascript: void(0);" class="nav-link">Clients</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active':currentSection === 'pricing'}">
+          <a [ngxScrollTo]="'#pricing'" href="javascript: void(0);" class="nav-link">Plans</a>
+        </li>
+      </ul>
+      <button class="btn btn-success btn-rounded navbar-btn">Try for Free</button>
+
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+  <!-- Hero section Start -->
+  <section class="hero-section-5" id="home" style="background: url(assets/images/bg-2.png) center center;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="hero-wrapper text-center mb-4">
+            <p class="font-16 text-uppercase">Discover TutorTime.pk Today</p>
+            <h1 class="hero-title mb-4">Make your Site Amazing & Unique with <span class="text-success">TutorTime.pk</span>
+            </h1>
+
+            <p>To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine
+              occidental</p>
+
+            <div class="text-center mt-4">
+              <div class="subscribe">
+                <form>
+                  <div class="row">
+                    <div class="col-md-9">
+                      <div>
+                        <input type="text" class="form-control" placeholder="Enter your E-mail address">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="mt-3 mt-md-0">
+                        <button type="button" class="btn btn-success btn-block">Subscribe Us</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- Hero section End -->
+
+  <app-services></app-services>
+  <app-features></app-features>
+  <app-clients></app-clients>
+  <app-plans></app-plans>
+  <app-footer></app-footer>
+</div>
